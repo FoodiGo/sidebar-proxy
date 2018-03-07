@@ -1,0 +1,30 @@
+.containerBody {
+  display: flex;
+}
+.title-map {
+  justify-content: flex-start;
+  flex: 0 0 65%;
+}
+.pictures {
+  justify-content: flex-end;
+  flex: 1;
+  float: left;
+}
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  height: 50%;
+  align-content: space-between;
+  flex-direction: row;
+}
+.rev {
+  display: flex;
+}
+.sidebar {
+  display: flex;
+  height: 100%;
+  flex-flow: row wrap;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
