@@ -27,5 +27,16 @@ router.get('/restaurants/:restaurantId/reviews', function(req,res) {
   const url = `http://localhost:8001/restaurants/${path}/reviews`;
   request(url).pipe(res);
 });
+router.put('/restaurants/:restaurantId/reviews/:reviewId', function(req,res) {
+  const path = req.params.restaurantId;
+  const url = `http://localhost:8001/restaurants/${path}/reviews`;
+  request(url).pipe(res);
+});
+router.post('/', function(req,res) {
+  const path = req.params.restaurantId;
+  const url = `http://localhost:3001/restaurants/${path}/reviews`;
+  request(url).pipe(res);
+});
+
 
 module.exports = router;

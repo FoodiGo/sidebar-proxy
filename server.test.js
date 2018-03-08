@@ -10,39 +10,40 @@ describe('Test the root path', () => {
   });
 });
 
-describe('Test the root path', () => {
+describe('Information should have a defined body ', () => {
   test('Information should return a response body ', () => {
     return request(app).get("/information/101").then(response => {
       expect(response).toBeDefined();
     });
   });
 });
-describe('Test the root path', () => {
+describe('Pictures should have a defined body ', () => {
   test('Pictures should return a response body ', () => {
     return request(app).get("/pictures/105").then(response => {
       expect(response).toBeDefined();
     });
   });
 });
-describe('Test the root path', () => {
+describe('Title should have a defined body ', () => {
   test('Pictures should return a response body ', () => {
     return request(app).get("/title/107").then((response) => {
       expect(response).toBeDefined();
     });
   });
 });
-describe('Test the root path', () => {
+describe('Map should have a defined body ', () => {
   test('Pictures should return a response body ', () => {
     return request(app).get("/map/140").then(response => {
       expect(response.body).toBeDefined();
     });
   });
 });
-describe('Test the root path', () => {
+describe('Restaurants should have a defined body ', () => {
   test('Pictures should return a response body ', () => {
     return request(app).get("/restaurants/180/reviews").then(response => {
       expect(response.body).toBeDefined();
     });
   });
 });
+
 
