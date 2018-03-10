@@ -31,18 +31,20 @@ router.put('/restaurants/:restaurantId/reviews/:reviewId', (req, res) => {
   const path = req.params.restaurantId;
   const review = req.params.reviewId;
   const url = `http://foodigoreviews.us-west-1.elasticbeanstalk.com/restaurants/${path}/reviews/${review}`;
-  request(url).pipe(res);
+  request.post(url, { json: req.body })
+    .pipe(res);
 });
-router.post('/restaurants/:restaurantId/reviews/:reviewId', (req, res) => {
+router.post('/restaurants/:restaurantId/reviews', (req, res) => {
   const path = req.params.restaurantId;
-  const review = req.params.reviewId;
-  const url = `http://foodigoreviews.us-west-1.elasticbeanstalk.com/restaurants/${path}/reviews/${review}`;
-  request(url).pipe(res);
+  const url = `http://foodigoreviews.us-west-1.elasticbeanstalk.com/restaurants/${path}/reviews`;
+  request.post(url, { json: req.body })
+    .pipe(res);
 });
 router.post('/', (req, res) => {
   const path = req.params.restaurantId;
   const url = `http://foodigotitle-env.us-west-1.elasticbeanstalk.com/${path}`;
-  request(url).pipe(res);
+  request(url)
+    .pipe(res);
 });
 
 module.exports = router;
