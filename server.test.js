@@ -24,21 +24,21 @@ describe('Pictures should have a defined body ', () => {
   });
 });
 describe('Title should have a defined body ', () => {
-  test('Pictures should return a response body ', () => {
+  test('Title should return a response body ', () => {
     return request(app).get('/title/107').then((response) => {
       expect(response).toBeDefined();
     });
   });
 });
 describe('Map should have a defined body ', () => {
-  test('Pictures should return a response body ', () => {
+  test('Map should return a response body ', () => {
     return request(app).get('/map/140').then((response) => {
       expect(response.body).toBeDefined();
     });
   });
 });
 describe('Restaurants should have a defined body ', () => {
-  test('Pictures should return a response body ', () => {
+  test('Restaurants should return a response body ', () => {
     return request(app).get('/restaurants/140/reviews').then((response) => {
       expect(response.body).toBeDefined();
     });
