@@ -2,45 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="http://localhost:3000/style.css">
-    <link rel="stylesheet" href="http://localhost:8001/style.css">
-    <link rel="stylesheet" href="http://localhost:3400/style.css">
+    <link rel="stylesheet" href="http://foodigopictures.us-west-1.elasticbeanstalk.com/style.css">
+    <link rel="stylesheet" href="http://foodigoreviews.us-west-1.elasticbeanstalk.com/style.css">
+    <link rel="stylesheet" href="http://foodigosidebar-env.us-east-2.elasticbeanstalk.com/style.css">
+    <script src="https://use.fontawesome.com/4c36d47cd3.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>FoodiGo</title>
   </head>
   <body>
+    <div class="topnav">
+      <img class="img" src="https://s3-us-west-1.amazonaws.com/foodigoiconlib/FoodiGo.png"/>
+      <input type="text" placeholder="Search..">
+      <button class="button"><i class="fa fa-search"></i></button>
+    </div>
     <div class="conatinerTop">
+      <div class="write">
+        <button id="writeAReview" onClick="document.getElementById('reviews').scrollIntoView();">Write a Review!</button>
+        <div class="addButtons">
+          <button id="smallButtonsWrite"><i class="fa fa-camera"></i>Add Photo</button>
+          <button id="smallButtonsWrite"><i class="fa fa-share"></i>Share</button>
+          <button id="smallButtonsWrite"><i class="fa fa-bookmark"></i>Bookmark</button>
+        </div>
+      </div>
       <div id="title-map"></div>
       <div id="pictures"></div>
     </div>
     <div class="rev">
       <div id="reviews"></div>
       <div id="sidebar"></div>
+      <div class="footer"></div>
     </div>
+
       
 
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="http://localhost:3002/bundle.js"></script>
-    <script src="http://localhost:3000/bundle.js"></script>
-    <script src="http://localhost:8001/bundle.js"></script>
-    <script src="http://localhost:3400/bundle.js"></script>
-    <!-- see: https://reactjs.org/docs/react-without-jsx.html -->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="http://foodigotitle-env.us-west-1.elasticbeanstalk.com/bundle.js"></script>
+  <script src="http://foodigopictures.us-west-1.elasticbeanstalk.com/bundle.js"></script>
+  <script src="http://foodigoreviews.us-west-1.elasticbeanstalk.com/bundle.js"></script>
+  <script src="http://foodigosidebar-env.us-east-2.elasticbeanstalk.com/bundle.js"></script>
+  <!-- see: https://reactjs.org/docs/react-without-jsx.html -->
     <script>
       ReactDOM.render(
-        React.createElement(TitleMap, {id: 101}, null),
+        React.createElement(TitleMap, { id: 101 }, null),
         document.getElementById('title-map')
       );
       ReactDOM.render(
-        React.createElement(ReviewApp, {restaurantId: 101}, null),
+        React.createElement(ReviewApp, { restaurantId: 101 }, null),
         document.getElementById('reviews')
       );
       ReactDOM.render(
-        React.createElement(Pictures, {id: 101}, null),
+        React.createElement(Pictures, { id: 101 }, null),
         document.getElementById('pictures')
       );
       ReactDOM.render(
-        React.createElement(Sidebar, {id: 101, location: window.navigator.geolocation}, null),
+        React.createElement(Sidebar, { id: 101, location: window.navigator.geolocation }, null),
         document.getElementById('sidebar')
       );
     </script>

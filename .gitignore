@@ -1,2 +1,5 @@
 node_modules
 .env
+router.js
+server.js
+server.test.js
