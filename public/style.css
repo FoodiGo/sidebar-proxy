@@ -1,30 +1,38 @@
 .containerBody {
   display: flex;
-}
-.title-map {
-  justify-content: flex-start;
-  flex: 0 0 65%;
-}
-.pictures {
-  justify-content: flex-end;
-  flex: 1;
-  float: left;
-}
-.top {
-  display: flex;
-  flex-wrap: wrap;
-  height: 50%;
-  align-content: space-between;
+  height: auto;
   flex-direction: row;
 }
-.rev {
+.title-map {
+  width: 50%;
+}
+.conatinerTop {
   display: flex;
+}
+.pictures {
+  flex: 1;
+  width: 50%;
+  float: right;
+  align-self: flex-end;
+}
+#pictures {
+  margin-left: -80px;
+  margin-top: 250px;
+  float: right;
+  align-items: flex-end;
+}
+.rev {
+  position: absolute;
+  padding-top: 20px;
+  display: flex;
+  width: 100%;
 }
 .sidebar {
   display: flex;
-  height: 100%;
+  height: 50%;
+  margin-top: 40%;
+  width: 25%;
   flex-flow: row wrap;
   display: flex;
-  align-items: stretch;
   flex-direction: column;
 }
