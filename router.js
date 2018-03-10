@@ -43,7 +43,7 @@ router.post('/restaurants/:restaurantId/reviews', (req, res) => {
 router.post('/', (req, res) => {
   const path = req.params.restaurantId;
   const url = `http://foodigotitle-env.us-west-1.elasticbeanstalk.com/${path}`;
-  request(url)
+  request.post(url, { json: req.body })
     .pipe(res);
 });
 
