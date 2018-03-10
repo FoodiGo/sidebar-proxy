@@ -2,40 +2,49 @@ const express = require('express');
 const request = require('request');
 const router = express.Router();
 
-router.get('/information/:id', function(req,res) {
+router.get('/information/:id', (req, res) => {
   const path = req.params.id;
-  const url = `http://localhost:3400/information/${path}`;
+  const url = `http://foodigosidebar-env.us-east-2.elasticbeanstalk.com/information/${path}`;
   request(url).pipe(res);
 });
-router.get('/pictures/:id', function(req,res) {
+router.get('/pictures/:id', (req, res) => {
   const path = req.params.id;
-  const url = `http://localhost:3000/pictures/${path}`;
+  const url = `http://foodigopictures.us-west-1.elasticbeanstalk.com/pictures/${path}`;
   request(url).pipe(res);
 });
-router.get('/title/:id', function(req,res) {
+router.get('/title/:id', (req, res) => {
   const path = req.params.id;
-  const url = `http://localhost:3001/title/${path}`;
+  const url = `http://foodigotitle-env.us-west-1.elasticbeanstalk.com/title/${path}`;
   request(url).pipe(res);
 });
-router.get('/map/:id', function(req,res) {
+router.get('/map/:id', (req, res) => {
   const path = req.params.id;
-  const url = `http://localhost:3001/map/${path}`;
+  const url = `http://foodigotitle-env.us-west-1.elasticbeanstalk.com/map/${path}`;
   request(url).pipe(res);
 });
-router.get('/restaurants/:restaurantId/reviews', function(req,res) {
+router.get('/restaurants/:restaurantId/reviews', (req, res) => {
   const path = req.params.restaurantId;
-  const url = `http://localhost:8001/restaurants/${path}/reviews`;
+  const url = `http://foodigoreviews.us-west-1.elasticbeanstalk.com/restaurants/${path}/reviews`;
   request(url).pipe(res);
 });
-router.put('/restaurants/:restaurantId/reviews/:reviewId', function(req,res) {
+router.put('/restaurants/:restaurantId/reviews/:reviewId', (req, res) => {
   const path = req.params.restaurantId;
-  const url = `http://localhost:8001/restaurants/${path}/reviews`;
-  request(url).pipe(res);
+  const review = req.params.reviewId;
+  const url = `http://foodigoreviews.us-west-1.elasticbeanstalk.com/restaurants/${path}/reviews/${review}`;
+  request.post(url, { json: req.body })
+    .pipe(res);
 });
-router.post('/', function(req,res) {
+router.post('/restaurants/:restaurantId/reviews', (req, res) => {
   const path = req.params.restaurantId;
-  const url = `http://localhost:3001/restaurants/${path}/reviews`;
-  request(url).pipe(res);
+  const url = `http://foodigoreviews.us-west-1.elasticbeanstalk.com/restaurants/${path}/reviews`;
+  request.post(url, { json: req.body })
+    .pipe(res);
+});
+router.post('/', (req, res) => {
+  const path = req.params.restaurantId;
+  const url = `http://foodigotitle-env.us-west-1.elasticbeanstalk.com/${path}`;
+  request.post(url, { json: req.body })
+    .pipe(res);
 });
 
 module.exports = router;
